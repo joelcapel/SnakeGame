@@ -173,26 +173,74 @@ public class Main extends Application {
     private void dibujarSerpiente(GraphicsContext graphicsContext){
         graphicsContext.setFill(Color.web("B4F538"));
         graphicsContext.fillRoundRect(cabezaSerpiente.getX()*TAMAÑO_CUADRADO, cabezaSerpiente.getY() * TAMAÑO_CUADRADO, TAMAÑO_CUADRADO-1, TAMAÑO_CUADRADO-1, 35, 35);
-
+        if (puntuacion >=5 && puntuacion <=10) {
+            graphicsContext.setFill(Color.web("0638F7"));
+        }else if (puntuacion >=11 && puntuacion <=20) {
+            graphicsContext.setFill(Color.web("F71106"));
+        }else if (puntuacion >=21 && puntuacion <=30) {
+            graphicsContext.setFill(Color.web("000000"));
+        }else if (puntuacion >=31) {
+            graphicsContext.setFill(Color.web("ffffff"));
+        }
         for (int i = 1; i < cuerpoSerpiente.size(); i++) {
             graphicsContext.fillRoundRect(cuerpoSerpiente.get(i).getX() * TAMAÑO_CUADRADO, cuerpoSerpiente.get(i).getY()* TAMAÑO_CUADRADO, TAMAÑO_CUADRADO-1, TAMAÑO_CUADRADO-1, 20, 20);
         }
+
     }
+
+    //He comentado las siguientes lineas porque no consigo lo previsto, el proposito es aumentar la velocidad cuando
+    //La puntuacion supere ciertos valores y lo hace pero el cuerpo no acompaña, la serpiente no rellena esos campos
 
     private void moverDerecha(){
         cabezaSerpiente.x++;
+        /*if (puntuacion >=5 && puntuacion <=10) {
+            cabezaSerpiente.x+=2;
+        }else if (puntuacion >10 && puntuacion <=20){
+            cabezaSerpiente.x+=3;
+        }else if (puntuacion >20 && puntuacion <=30) {
+            cabezaSerpiente.x += 4;
+        }else if (puntuacion >31) {
+            cabezaSerpiente.x += 5;
+        }*/
     }
 
     private void moverIzquierda(){
         cabezaSerpiente.x--;
+        /*if (puntuacion >=5 && puntuacion <=10) {
+            cabezaSerpiente.x-=2;
+        }else if (puntuacion >10 && puntuacion <=20){
+            cabezaSerpiente.x-=3;
+        }else if (puntuacion >20 && puntuacion <=30) {
+            cabezaSerpiente.x-= 4;
+        }else if (puntuacion >31) {
+            cabezaSerpiente.x-= 5;
+        }*/
     }
 
     private void moverArriba(){
         cabezaSerpiente.y++;
+        /*if (puntuacion >=5 && puntuacion <=10) {
+            cabezaSerpiente.y+=2;
+        }else if (puntuacion >10 && puntuacion <=20){
+            cabezaSerpiente.y+=3;
+        }else if (puntuacion >20 && puntuacion <=30) {
+            cabezaSerpiente.y+= 4;
+        }else if (puntuacion >31) {
+            cabezaSerpiente.y+= 5;
+        }*/
     }
 
     private void moverAbajo(){
         cabezaSerpiente.y--;
+        /*if (puntuacion >=5 && puntuacion <=10) {
+            cabezaSerpiente.y-=2;
+        }else if (puntuacion >10 && puntuacion <=20){
+            cabezaSerpiente.y-=3;
+        }else if (puntuacion >20 && puntuacion <=30) {
+            cabezaSerpiente.y-= 4;
+        }else if (puntuacion >31) {
+            cabezaSerpiente.y-= 5;
+        }*/
     }
 
     public void finJuego(){
@@ -221,12 +269,6 @@ public class Main extends Application {
         graphicsContext.setFill(Color.WHITE);
         graphicsContext.setFont(new Font("Digital-7", 35));
         graphicsContext.fillText("Puntuacion: " + puntuacion, 10, 35);
-    }
-
-    private void velocidad(){
-        if (puntuacion == 5){
-
-        }
     }
 
     public static void main(String[] args) {
